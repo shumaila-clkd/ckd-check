@@ -26,7 +26,7 @@ hemo = st.number_input("Hemoglobin", 3.0, 18.0, 12.5)
 if st.button("Check Result"):
     input_data = {'age': age, 'bp': bp, 'sg': sg, 'al': al, 'su': su, 'hemo': hemo}
     df = pd.DataFrame([input_data])
-    df = df.reindex(columns=model_columns, fill_value=0)
+    df = df.reindex(columns=model_columns)
     result = model.predict(df)[0]
     if str(result).lower() in ['ckd', '1']:
         st.error("Warning: CKD Risk - Visit Doctor")
